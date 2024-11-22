@@ -1,0 +1,51 @@
+import math
+# Importar librería de matemáticas
+# Introducción al juego
+def intro():
+    print("¡Bienvenido a 'Piratas de la física'!")
+    print("Eres un pirata el cuál su barco se atascó tras una feroz batalla")
+    print("Resuelve los desafíos usando tus conocimientos de Física para ganar.\n")
+# Primera prueba:Impulso
+def prueba_impulso():
+    print("La primera prueba es sobre impulso: Impulso")
+    print("El bote está atascado, necesitas darle un impulso suficiente para sacarlo.")
+    print("La fórmula del impulso es: I = m * Δv\n")
+    masa=float(input("Introduce la masa del bote (kg): "))
+    velocidad=float(input("Introduce la velocidad necesaria (m/s): "))
+    # Fórmula del impulso:I=m*Δv
+    impulso=masa*velocidad
+    respuesta=float(input("Calcula el impulso necesario y escribe tu respuesta (N·s): "))
+    if math.isclose(respuesta, impulso, rel_tol=0.1):
+        print("¡Correcto! Sabes que impulso es necesario.\n")
+        return True
+    else:
+        print(f"Incorrecto. El impulso correcto era:",impulso,"\n")
+        return False
+# Segunda prueba:Trabajo y energía
+def prueba_trabajo():
+    print("Segunda prueba: Trabajo y energía")
+    print("Para remolcar el bote hasta el puerto, necesitas calcular el trabajo realizado.")
+    print("La fórmula del trabajo es: W=F*d\n")
+    fuerza = float(input("Introduce la fuerza aplicada (N): "))
+    distancia = float(input("Introduce la distancia a recorrer (m): "))
+    # Fórmula del trabajo: W=F*d
+    trabajo = fuerza * distancia
+    respuesta = float(input("Calcula el trabajo necesario y escribe tu respuesta (J): "))
+    if math.isclose(respuesta, trabajo, rel_tol=0.1):
+        print("¡Correcto! Trabajo calculado correctamente.\n")
+        return True
+    else:
+        print(f"Incorrecto. El trabajo correcto era:",trabajo,"\n")
+        return False
+# Función principal del juego
+def juego():
+    intro()
+    nombre = input("¿Cuál es tu nombre Pirata? ")
+    print(f"¡Buena suerte, pirata ",nombre,"!\n")
+    # Ejecución de los desafíos
+    if prueba_impulso() and prueba_trabajo():
+        print("¡Felicidades, Pirata! Has rescatado tu barco y ahora puedes seguir explorando los mares")
+    else:
+        print("No has logrado resolver todos los desafíos. El barco sigue atrapado. ¡Inténtalo de nuevo!")
+# Ejecutar el juego
+juego()
